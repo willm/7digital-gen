@@ -16,6 +16,8 @@ module.exports = function (it) {
         };
     };
     return {
-        getDetails: getDetails
+        releases: {
+            getDetails: getDetails
+        }
     };
 };

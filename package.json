@@ -1,9 +1,11 @@
 {
   "name": "7digital-gen",
   "version": "1.0.0",
+  "engines": { "node": ">0.11" },
   "description": "An wrapper around the 7digital api making use of es6 generators",
   "main": "main.js",
   "scripts": {
+    "start": "node --harmony main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "will munn",

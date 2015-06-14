@@ -1,7 +1,7 @@
 'use strict';
 
 let createApi = require('../releases');
-let it = main();
+let iterator = main();
 //pass iterator to module.
 let api = createApi(it);
 
@@ -12,4 +12,4 @@ function* main () {
 }
 
 //initiate generator
-it.next();
+iterator.next();

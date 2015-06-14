@@ -8,7 +8,7 @@ describe('7digital-gen', () => {
             let api;
             function* getRelease () {
                 let releaseResponse = yield api.
-                    releases.
+                    release.
                     getDetails({ releaseId: 12345});
                 expect(releaseResponse.release.id).to.equal('12345');
                 done();
@@ -24,7 +24,7 @@ describe('7digital-gen', () => {
             function* getRelease () {
                 try {
                     let releaseResponse = yield api.
-                        releases.
+                        release.
                         getDetails({ releaseId: 0});
                 } catch (err) {
                     expect(err).to.be.defined;

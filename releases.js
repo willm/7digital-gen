@@ -1,10 +1,9 @@
 'use strict';
-let Releases = require('7digital-api').Releases;
+let api = require('7digital-api');
+let schema = require('7digital-api/assets/7digital-api-schema');
+let createSchema = require('./create-schema');
 let createCallback;
 
-function getDetails (parameters) {
-    return new Releases().getDetails(parameters, createCallback());
-}
 
 module.exports = function (it) {
     createCallback = function () {
@@ -15,9 +14,5 @@ module.exports = function (it) {
             return it.next(response);
         };
     };
-    return {
-        releases: {
-            getDetails: getDetails
-        }
-    };
+    return createSchema(schema, api, createCallback());
 };

@@ -8,8 +8,9 @@ describe('', () => {
     let expectedErr = new Error('boom');
     let expectedRes = {release: {id: '1234'}};
     let expectedParams = {releaseId: 1234};
+    let schema;
     beforeEach(() => {
-        let schema = {
+        schema = {
             resources: {
                 Releases: {
                     resource: 'release',
@@ -50,10 +51,11 @@ describe('', () => {
         expect(api.release.getDetails).to.be.a('function');
     });
     it('proxies the 7digital api functions', (done) => {
-        api.release.getDetails(expectedParams, (err, res) => {
+        api = createSchema(schema, sd, (err, res) => {
             expect(err).to.deep.equal(expectedErr);
             expect(res).to.deep.equal(expectedRes);
             done();
         });
+        api.release.getDetails(expectedParams);
     });
 });

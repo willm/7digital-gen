@@ -1,5 +1,5 @@
 'use strict';
-let createApi = require('../../releases');
+let createApi = require('../../');
 let { expect } = require('chai');
 
 describe('7digital-gen', () => {

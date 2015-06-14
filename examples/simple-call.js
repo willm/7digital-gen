@@ -1,6 +1,6 @@
 'use strict';
 
-let createApi = require('../releases');
+let createApi = require('..');
 let iterator = main();
 //pass iterator to module.
 let api = createApi(iterator);

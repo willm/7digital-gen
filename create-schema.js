@@ -1,3 +1,4 @@
+'use strict';
 let _ = require('lodash');
 
 module.exports = function createSchema (schema, sd, callback) {

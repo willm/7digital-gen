@@ -7,7 +7,14 @@ module.exports = function createSchema (schema, sd, callback) {
         let builtResource = {};
         _.each(resource.actions, (action) => {
             builtResource[action.methodName] = function (params, cb) {
-                new sd[key]()[action.methodName](params, callback);
+                new sd[key]({
+                    logger: {
+                        info: _.noop,
+                        silly: _.noop,
+                        error: _.noop,
+                        warn: _.noop
+                    }
+                })[action.methodName](params, callback);
             };
         });
         api[resource.resource] = builtResource;
